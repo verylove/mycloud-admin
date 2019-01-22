@@ -1,7 +1,7 @@
 package com.mycloud.admin.handler;
 
-import com.mycloud.common.entity.Result;
 import com.mycloud.common.enums.ResultEnum;
+import com.mycloud.common.result.Result;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
@@ -26,7 +26,7 @@ public class CustomAuthcSuccessHandler extends SavedRequestAwareAuthenticationSu
                 request.getContentType().equals(MediaType.APPLICATION_JSON_VALUE)) {
             response.setCharacterEncoding("UTF-8");
             response.setContentType("application/json");
-            response.getWriter().print(new Result<>(ResultEnum.LOGIN_SUCCESS).toString());
+            response.getWriter().print(Result.returnSuccess());
 
         } else {
             super.onAuthenticationSuccess(request, response, authentication);

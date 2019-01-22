@@ -1,7 +1,7 @@
 package com.mycloud.admin.handler;
 
-import com.mycloud.common.entity.Result;
-import com.mycloud.common.enums.ResultEnum;
+import com.mycloud.common.result.Result;
+import com.mycloud.common.utils.ResponseUtil;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -31,12 +31,7 @@ public class CustomAuthEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         //返回json形式的错误信息
-        httpServletResponse.setCharacterEncoding("UTF-8");
-        httpServletResponse.setContentType("application/json");
-
-        Result result = new Result(ResultEnum.LOGIN_SESSION_MISS);
-        httpServletResponse.getWriter().print(result.toString());
-        httpServletResponse.getWriter().flush();
+        ResponseUtil.out(httpServletResponse, Result.returnFail());
 
     }
 }

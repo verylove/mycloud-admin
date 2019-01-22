@@ -9,8 +9,7 @@ jasypt:
   encryptor:
     password: cx-admin
 spring:
-  profiles:
-    active: dev
+  profiles: dev
   datasource:
     url: jdbc:mysql://192.168.52.147:3306/mycloud-admin?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8
     username: ENC(gVFe/PGTewnOeHJCG7VkDQ==)

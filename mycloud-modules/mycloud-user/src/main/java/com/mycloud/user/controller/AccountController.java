@@ -42,7 +42,7 @@ public class AccountController {
     private final IMenusService menusService;
 
     @PostMapping(value = "/getUserByUsername")
-    public Result<AuthAccount> getUserByUsername( AuthAccount authAccount){
+    public Result<AuthAccount> getUserByUsername(AuthAccount authAccount){
         Account account = accountService.getAccountByUserName(authAccount.getUsername());
         return Result.returnSuccess(ObjectConvertUtil.convert(account, AuthAccount.class));
     }

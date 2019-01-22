@@ -1,7 +1,7 @@
 package com.mycloud.admin.handler;
 
-import com.mycloud.common.entity.Result;
 import com.mycloud.common.enums.ResultEnum;
+import com.mycloud.common.result.Result;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
@@ -25,6 +25,6 @@ public class CustomAuthcFailureHandler extends SimpleUrlAuthenticationFailureHan
         //直接返回JSON字符串
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().print(new Result<>(ResultEnum.LOGIN_FAIL).toString());
+        response.getWriter().print(Result.returnFail(ResultEnum.LOGIN_FAIL));
     }
 }
