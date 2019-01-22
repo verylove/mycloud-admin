@@ -1,0 +1,29 @@
+server:
+  port: 9001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+# 配置文件加密key
+jasypt:
+  encryptor:
+    password: cx-admin
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://192.168.52.147:3306/mycloud-admin?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8
+    username: ENC(gVFe/PGTewnOeHJCG7VkDQ==)
+    # Jasypt加密 可到common-utils中找到JasyptUtil加解密工具类生成加密结果 格式为ENC(加密结果)
+    password: ENC(WgjC6oX434yaMaxClVQlCA==)
+  jpa:
+    show-sql: true
+    # 自动生成表结构
+    generate-ddl: true
+    hibernate:
+#      ddl-auto: none
+#    # Elasticsearch
+#  data:
+#    elasticsearch:
+#      cluster-nodes: 192.168.52.139:9300
+#      cluster-name: elasticsearch

@@ -1,0 +1,12 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: mycloud-registry
+  profiles:
+    active: "@profileActive@"
+logging:
+  level:
+    org:
+      springframework:
+        web: debug

@@ -1,0 +1,11 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: mycloud-gate-zuul
+  profiles:
+    active: "@profileActive@"
+logging:
+  level:
+    com.mycloud.*: debug
+

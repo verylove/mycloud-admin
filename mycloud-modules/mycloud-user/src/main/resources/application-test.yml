@@ -1,0 +1,6 @@
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:mysql://123.206.93.142:3306/cx-admin?allowMultiQueries=true&useSSL=false
+    username: root
+    password: 66nao

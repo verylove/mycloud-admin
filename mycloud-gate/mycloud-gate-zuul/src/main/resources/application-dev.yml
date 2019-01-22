@@ -1,0 +1,54 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+spring:
+  redis:
+    host: 192.168.52.147
+    port: 6379
+    password:
+
+
+zuul:
+  routes:
+    api-user:
+      path: /api-user/**
+      serviceId: mycloud-user
+
+
+security:
+  oauth2:
+    client:
+      clientId: mycloud
+      clientSecret: mycloud
+      userAuthorizationUri: http://localhost:8000/oauth/authorize
+      grant-type: password
+      scope: server
+      access-token-uri: http://localhost:8000/oauth/token
+    resource:
+      userInfoUri: http://localhost:8000/user
+    authorization:
+      check-token-access: http://localhost:8000/oauth/check_token
+ribbon:
+  eureka:
+    enabled: true
+
+feign:
+  hystrix:
+    enabled: true
+
+# 忽略鉴权url
+ignored:
+  urls:
+    - /auth/login
+    - /api-user/account/info
+    - /druid/**
+    - /swagger-ui.html
+    - /swagger-resources/**
+    - /swagger/**
+    - /**/v2/api-docs
+    - /**/*.js
+    - /**/*.css
+    - /**/*.png
+    - /**/*.ico

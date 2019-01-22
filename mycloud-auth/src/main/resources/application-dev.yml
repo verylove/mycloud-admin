@@ -1,0 +1,45 @@
+spring:
+  redis:
+    host: 192.168.52.147
+    port: 6379
+    password:
+  datasource:
+    url: jdbc:mysql://192.168.52.147:3306/mycloud-auth?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8&autoReconnect=true&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+      #tomcat:
+      #max-idle: 5
+      #max-wait: 10000
+      #min-idle: 2
+      #initial-size: 3
+      #validation-query: select 1
+      #hikari:
+      #jdbc-url: jdbc:mysql://127.0.0.1:3306/hq_account?characterEncoding=UTF-8
+      #driver-class-name: com.mysql.jdbc.Driver
+      #username: root
+      #password: root
+      #security:
+      #  oauth2:
+      #resource:
+    #filter-order: 3
+    # clientId: mycloud
+    #clientSecret: mycloud
+    # scope: xx
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        web: debug
+#logging.level.org.springframework.security: DEBUG
+ribbon:
+  eureka:
+    enabled: true
+feign:
+  hystrix:
+    enabled: true
